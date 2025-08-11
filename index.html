@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>سامانه گشت نگهبانی نامیکا</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="theme-color" content="#0d6efd" />
+
+  <!-- فونت فارسی -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v33.003/dist/font-face.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛡️ گشت نگهبانی</h1>
+      <button id="theme-toggle" aria-label="تغییر تم">🌞/🌑</button>
+    </header>
+
+    <!-- تب‌ها -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="view">مشاهده گشت‌ها</button>
+      <button class="tab-btn" data-tab="add">ثبت گشت جدید</button>
+    </div>
+
+    <!-- تب مشاهده -->
+    <div id="view-tab" class="tab-content active">
+      <div class="controls">
+        <input type="text" id="search-input" placeholder="🔍 جستجو..." />
+
+        <select id="shift-filter">
+          <option value="">همه شیفت‌ها</option>
+          <option value="صبح">صبح</option>
+          <option value="عصر">عصر</option>
+          <option value="شب">شب</option>
+        </select>
+
+        <select id="round-filter">
+          <option value="">همه گشت‌ها</option>
+          <option value="گشت اول">گشت اول</option>
+          <option value="گشت دوم">گشت دوم</option>
+          <option value="گشت سوم">گشت سوم</option>
+        </select>
+
+        <select id="status-filter">
+          <option value="">همه وضعیت‌ها</option>
+          <option value="عادی">عادی</option>
+          <option value="مشکل دارد">مشکل دارد</option>
+        </select>
+
+        <button id="print-btn">🖨️ چاپ</button>
+      </div>
+
+      <div id="stats">
+        <div class="stat-card">همه: <span id="total-count">0</span></div>
+        <div class="stat-card">عادی: <span id="normal-count">0</span></div>
+        <div class="stat-card">مشکل: <span id="issue-count">0</span></div>
+      </div>
+
+      <div class="table-container">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>تاریخ</th>
+              <th>ساعت</th>
+              <th>گشت</th>
+              <th>نام</th>
+              <th>شیفت</th>
+              <th>محل</th>
+              <th>وضعیت</th>
+              <th>یادداشت</th>
+              <th>تایید</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- تب ثبت -->
+    <div id="add-tab" class="tab-content">
+      <form id="add-form" class="add-form">
+        <h3>ثبت گشت جدید</h3>
+
+        <label>نام نگهبان *</label>
+        <input type="text" name="guard" required />
+
+        <label>تاریخ (شمسی)</label>
+        <input type="text" id="jalali-date" readonly />
+
+        <label>ساعت *</label>
+        <input type="time" name="time" required />
+
+        <label>گشت *</label>
+        <select name="round" required>
+          <option value="گشت اول">گشت اول</option>
+          <option value="گشت دوم">گشت دوم</option>
+          <option value="گشت سوم">گشت سوم</option>
+        </select>
+
+        <label>شیفت *</label>
+        <select name="shift" required>
+          <option value="صبح">صبح</option>
+          <option value="عصر">عصر</option>
+          <option value="شب">شب</option>
+        </select>
+
+        <label>محل گشت *</label>
+        <input type="text" name="location" required />
+
+        <label>وضعیت *</label>
+        <select name="status" required>
+          <option value="عادی">عادی</option>
+          <option value="مشکل دارد">مشکل دارد</option>
+        </select>
+
+        <label>یادداشت</label>
+        <textarea name="note" rows="3" placeholder="توضیحات..."></textarea>
+
+        <button type="submit">ثبت گشت</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>سامانه گشت نگهبانی | داده‌ها از گوگل شیت بارگیری شده‌اند</p>
+    </footer>
+  </div>
+
+  <!-- کتابخانه تقویم جلالی -->
+  <script src="https://cdn.jsdelivr.net/npm/jalaali-js@1.0.1/dist/jalaali.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
