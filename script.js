@@ -2,7 +2,7 @@
 const SPREADSHEET_ID = '16nOQQcR_N2qMB0FqsukH178RWe0_EdwsrSPBcJ-yCPA';
 const API_KEY = 'AIzaSyDdKZiW8YwQvqo0XeZ6t1s1jL2w9u8m0qA'; // فقط خواندن
 const RANGE = 'گشت نگهبانی!A1:I';
-const GAS_SCRIPT_ID = '1dkQPZ8uF4P3O8lrA5JuRfvoxcoGqAfKkI23jDstVCD-a6SLJIWF3wn7h'; // 👈 بعداً اینجا قرارش بده
+const GAS_SCRIPT_ID = 'AKfycbxr97Sq3HEzStB1ylXtFYoI1QEG4bDFb8wjk1SEEski1XCQt6CZb_6Km0UNAs2CWXo6Ig'; // 👈 بعداً اینجا قرارش بده
 const GAS_API_URL = `https://script.googleapis.com/v1/scripts/${GAS_SCRIPT_ID}:run`;
 
 // المنت‌ها
